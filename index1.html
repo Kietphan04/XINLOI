@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from panbap.github.io/ngamphaohoa/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Apr 2025 12:04:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pháo hoa</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+
+        #c {
+            background-color: #ffffff;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        #btn {
+            height: 55px;
+            width: 75px;
+            cursor: pointer;
+            background-color: #ce4f6a00;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease;
+        }
+
+        #btnYes,
+        #btnNo {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #ce4f6a;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1,
+        p {
+            transition: opacity 0.3s ease;
+            font-family: 'Times New Roman', 'Arial', sans-serif;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            opacity: 1;
+        }
+
+        #btn img {
+            width: 60px;
+            height: 40px;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(5px);
+            }
+        }
+
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        #btn:hover,
+        #btnYes:hover,
+        #btnNo:hover {
+            background-color: #d37da8;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #btn:active,
+        #btnYes:active,
+        #btnNo:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .message {
+            display: none;
+            font-size: 20px;
+            margin: 10px;
+            padding: 30px;
+            border: 2px solid #f19fb3;
+            border-radius: 8px;
+            background-color: #ffffff;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            overflow: hidden;
+            word-wrap: break-word;
+            transform: perspective(500px) rotateY(10deg);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .message.show {
+            transform: perspective(500px) rotateY(0deg);
+        }
+
+        .div-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 100%;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .message-text {
+            font-size: 18px;
+            display: block;
+            padding: 30px;
+            border: 2px solid #f19fb3;
+            border-radius: 10px;
+            background-color: #ffffff;
+            text-align: center;
+            margin-bottom: 30px;
+            transform: perspective(500px) rotateY(10deg);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .message-text.show {
+            transform: perspective(500px) rotateY(0deg);
+        }
+    </style>
+</head>
+
+<body id="playBtn">
+    <audio id="audio" src="nhac.mp3"></audio>
+    <canvas id="c" width="948" height="586"></canvas>
+    <div>
+        <h1 id="messageTitle">chịchị có tin nhắn mới</h1>
+        <p id="messageText">Xem ngay</p>
+        <button id="btn">
+            <img src="letters.png" alt="Description">
+        </button>
+        <div class="message">Chúc chị ngày mới tốt lành.,</div>
+        <div class="message">Vài ngày nay e suy nghĩ thấu đáo rồi ạ Khoảng thời gian qua e con nít thật nhưng e cũng chỉ muốn làm chị vui muốn thấy chị cười nên e mới vậy ạ!</div>
+        <div class="message"> e không biết là chị không thích ạ e vẫn hy vọng chị sẽ quay lại nhìn e lần nữa ạ e sẽ không bao giờ để chị lại âu</div>
+        <div class="message">chỉ cần chị muốn e sẽ luôn có mặt chị muốn đi đâu e cũng sẽ đèo chị đi, </div>
+        <div class="message">e sẽ tất cả mọi thứ nếu chị thích ạ còn chị không thích e sẽ không làm ạ  </div>
+        <div class="message">ngắm những ánh sáng rực rỡ trên bầu trời.</div>
+        <div class="message">em chỉ muốn thấy nụ cười của chị,</div>
+        <div class="message">vì đó là khoảnh khắc em mong đợi nhất. 😘</div>
+
+        
+    </div>
+    <script src="script.js"> </script>
+    <script>
+        document.body.addEventListener("click", function () {
+            var audio = document.getElementById("audio");
+            audio.play();
+        });
+    </script>
+
+</body>
+
+
+<!-- Mirrored from panbap.github.io/ngamphaohoa/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Apr 2025 12:04:13 GMT -->
+
+<!------->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Chuyển Hướng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    .button {
+      padding: 15px 30px;
+      font-size: 18px;
+      color: rgb(0, 0, 0);
+      background-color: #d177cd;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: none; /* Ẩn nút ban đầu */
+    }
+
+    .button:hover {
+      background-color: #cedb16;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index2.html" class="button" id="delayedButton">Chị bấm vô đây nè</a>
+
+  <script>
+    // Sau 40 giây thì hiện nút
+    setTimeout(function() {
+      document.getElementById("delayedButton").style.display = "inline-block";
+    }, 45000); // 40.000ms = 40s
+  </script>
+
+</body>
+</html>
+
